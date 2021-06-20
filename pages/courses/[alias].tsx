@@ -11,7 +11,7 @@ const firstCategory = 0;
 function Course({ menu, page, products }: CourseProps): JSX.Element {
     return (
         <>
-            <ul>{products && products.length}</ul>
+            <ul>{products && JSON.stringify(products)}</ul>
         </>
     );
 }
@@ -23,6 +23,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
             firstCategory,
         }
     );
+
     return {
         paths: menu.flatMap((m) => m.pages.map((p) => '/courses/' + p.alias)),
         fallback: true,

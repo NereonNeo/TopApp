@@ -5,6 +5,8 @@ import Header from './Header/Header';
 import Sidebar from './Sidebar/Sidebar';
 import Footer from './Footer/Footer';
 import { FC } from 'react';
+import { IAppContext } from '../Context/app.context';
+import { AppContextProvider } from '../Context/app.context';
 const Layout = ({ children }: layoutProps): JSX.Element => {
     return (
         <div className={styles.wrapper}>
@@ -16,14 +18,19 @@ const Layout = ({ children }: layoutProps): JSX.Element => {
     );
 };
 
-export const withLayout = <T extends Record<string, unknown>>(
+export const withLayout = <T extends Record<string, unknown> & IAppContext>(
     Component: FC<T>
 ) => {
     return function withLayoutComponent(props: T): JSX.Element {
         return (
-            <Layout>
-                <Component {...props} />
-            </Layout>
+            <AppContextProvider
+                menu={props.menu}
+                firstCategory={props.firstCategory}
+            >
+                <Layout>
+                    <Component {...props} />
+                </Layout>
+            </AppContextProvider>
         );
     };
 };
