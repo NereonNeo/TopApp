@@ -10,8 +10,6 @@ import { MenuItem } from '../interfaces/menu.interface';
 import { withLayout } from '../layout/Layout';
 
 function Home({ menu }: HomeProps): JSX.Element {
-    console.log(menu);
-
     const [raiting, setRaiting] = useState<number>(4);
     return (
         <>
