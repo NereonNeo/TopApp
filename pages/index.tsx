@@ -8,7 +8,8 @@ import Raiting from '../Components/Raiting/Raiting';
 import Tag from '../Components/Tag/Tag';
 import { MenuItem } from '../interfaces/menu.interface';
 import { withLayout } from '../layout/Layout';
-
+import Input from '../Components/Input/Input';
+import TextArea from '../Components/TextArea/TextArea';
 function Home({ menu }: HomeProps): JSX.Element {
     const [raiting, setRaiting] = useState<number>(4);
     return (
@@ -48,6 +49,8 @@ function Home({ menu }: HomeProps): JSX.Element {
                     );
                 })}
             </ul>
+            <Input placeholder="test" />
+            <TextArea placeholder="textArea" />
         </>
     );
 }
