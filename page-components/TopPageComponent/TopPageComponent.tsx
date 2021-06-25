@@ -11,6 +11,7 @@ import Paragraph from '../../Components/Paragaraph/Paragraph';
 import Sort from '../../Components/Sort/Sort';
 import { SortEnum } from '../../Components/Sort/Sort.props';
 import { sortReducer } from './sort.reducer';
+import Product from '../../Components/Product/Product';
 const TopPageComponent = ({
     page,
     products,
@@ -41,7 +42,7 @@ const TopPageComponent = ({
             <div>
                 {sortProducts &&
                     sortProducts.map((p) => {
-                        return <div key={p._id}>{p.title}</div>;
+                        return <Product key={p._id} product={p} />;
                     })}
             </div>
             <div className={styles.hhTitle}>
