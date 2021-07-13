@@ -1,1 +1,1 @@
-# Проект на Next.js и TypeScript
+# Учебный проект на NextJS
